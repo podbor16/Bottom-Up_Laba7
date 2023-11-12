@@ -78,3 +78,21 @@ def display_registry_contents(ship_list):
 
 def demonstrate_skills(ship):
     ship.display_info()
+
+def main():
+    ship_list = []
+    while True:
+        print("\nОпции:")
+        print("1. Добавить судно")
+        print("2. Показать реестр судов")
+        print("3. Выход")
+        choice = input("Введите ваш выбор: ")
+
+        if choice == 1:
+            pass
+        elif choice == 2:
+            pass
+        elif choice == 3:
+            pass
+        else:
+            pass
