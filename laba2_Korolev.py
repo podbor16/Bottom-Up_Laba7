@@ -89,10 +89,62 @@ def main():
         choice = input("Введите ваш выбор: ")
 
         if choice == 1:
-            pass
+            name = input("\nВведите имя судна: ")
+            while True:
+                length = input("Введите длину судна (в метрах): ")
+                if length.isdigit():
+                    break
+                else:
+                    print("Ошибка! Введите длину судна цифрами")
+            while True:
+                max_speed = input("Введите максимальную скорость судна (в км/ч): ")
+                if max_speed.isdigit():
+                    break
+                else:
+                    print("Ошибка! Введите максимальную скорость судна цифрами")
+
+            print("\nВыберите тип судна:")
+            print("1. Пароход")
+            print("2. Парусник")
+            print("3. Корвет")
+            ship_type_choice = input("Введите номер выбранного типа: ")
+
+            if ship_type_choice == "1":
+                engine_type = input("Введите тип двигателя парохода: ")
+                ship = Steamship(name, length, max_speed, engine_type)
+            elif ship_type_choice == "2":
+                mast_count = input("Введите количество мачт парусника: ")
+                ship = SailingShip(name, length, max_speed, mast_count)
+            elif ship_type_choice == "3":
+                weapon = input("Введите вооружение корвета: ")
+                ship = Corvette(name, length, max_speed, weapon)
+            else:
+                print("Неверный выбор типа судна.")
+                continue
+
+            add_ship_to_registry(ship_list, ship)
+            print(f"\nСудно '{name}' успешно добавлено в реестр.")
+
         elif choice == 2:
-            pass
+            if len(ship_list) != 0:
+                print("\nВыберите судно для демонстрации данных о нём:")
+                display_registry_contents(ship_list)
+
+                try:
+                    selected_index = int(input("Введите номер судна: ")) - 1
+                    if 0 <= selected_index < len(ship_list):
+                        selected_ship = ship_list[selected_index]
+                        demonstrate_skills(selected_ship)
+                        input("\nНажмите Enter, чтобы продолжить...")
+                    else:
+                        print("Неверный номер судна.")
+                except ValueError:
+                    print("Введите число.")
+            else:
+                print("Реестр пуст.")
+                input("\nНажмите Enter, чтобы продолжить...")
+
         elif choice == 3:
-            pass
+            break
         else:
-            pass
+            print("Неверный выбор. Пожалуйста, выберите допустимую опцию.")
