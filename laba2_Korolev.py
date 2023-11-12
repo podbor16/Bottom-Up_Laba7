@@ -68,3 +68,12 @@ class Corvette(Ship):
         print(f"Длина: {self.length} метров")
         print(f"Максимальная скорость: {self.max_speed} км/ч")
         print(f"Вооружение: {self.weapon}")
+
+def add_ship_to_registry(ship_list, ship):
+    return
+
+def display_registry_contents(ship_list):
+    return
+
+def demonstrate_skills(ship):
+    return
