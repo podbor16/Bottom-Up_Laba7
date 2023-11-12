@@ -70,10 +70,11 @@ class Corvette(Ship):
         print(f"Вооружение: {self.weapon}")
 
 def add_ship_to_registry(ship_list, ship):
-    return
+    ship_list.append(ship)
 
 def display_registry_contents(ship_list):
-    return
+    for index, ship in enumerate(ship_list, start=1):
+        print(f"{index}. {ship.name}")
 
 def demonstrate_skills(ship):
-    return
+    ship.display_info()
